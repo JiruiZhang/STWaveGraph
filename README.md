@@ -12,7 +12,7 @@ Spatial transcriptomics (ST) enables transcriptome-wide molecular profiling whil
 - **Adaptive Spectral-Local Fusion:** Combines the spectral wave representation, local graph representation, and initial latent features through a learnable fusion mechanism to balance global graph spectral structure and local spatial consistency.
 - **Boundary-Aware Clustering Refinement:** Optimizes spatial domain embeddings through representation pretraining and clustering-oriented fine-tuning, including reconstruction, cross-view consistency, spatial coherence, clustering alignment, cluster balance, and boundary-aware regularization.
 
-![overview](STWaveGraph/Overview/overview.png)
+![overview](STWaveGraph-main/Overview/overview.png)
 
 ## Installation
 
@@ -67,4 +67,4 @@ pip install matplotlib==3.4.2
 
 A Jupyter Notebook of the tutorial is accessible from :
 
-https://github.com/JiruiZhang/STWaveGraph/blob/main/STWaveGraph/DLPFC.ipynb
+https://github.com/JiruiZhang/STWaveGraph-main/blob/main/STWaveGraph/DLPFC.ipynb
