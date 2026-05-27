@@ -67,4 +67,4 @@ pip install matplotlib==3.4.2
 
 A Jupyter Notebook of the tutorial is accessible from :
 
-[https://github.com/JiruiZhang/STWaveGraph-main/blob/main/STWaveGraph/DLPFC.ipynb](https://github.com/JiruiZhang/STWaveGraph/blob/main/STWaveGraph-main/10X Visium.ipynb)
+https://github.com/JiruiZhang/STWaveGraph/blob/main/STWaveGraph-main/10X%20Visium.ipynb
