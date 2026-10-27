@@ -23,7 +23,7 @@ from .utils import (
     build_edge_index_from_adj,
     cluster_embedding,
     refine_labels_by_spatial_neighbors,
-    cluster_consistency_loss 
+    cluster_consistency_loss #QWQWQW
 )
 
 
@@ -85,8 +85,7 @@ class STWaveGraph:
         lambda_balance=0.05,
         lambda_boundary=0.1,
         boundary_margin=1.0,
-        lambda_q_cons=0.5, 
-        use_q_for_pred=False, # 默认值为 False，保持和你之前的行为一致
+        lambda_q_cons=0.5, #AEQWAE
 
         # inference / clustering
         cluster_method="mclust",
@@ -133,8 +132,7 @@ class STWaveGraph:
         self.lambda_balance = lambda_balance
         self.lambda_boundary = lambda_boundary
         self.boundary_margin = boundary_margin
-        self.lambda_q_cons = lambda_q_cons 
-        self.use_q_for_pred = use_q_for_pred
+        self.lambda_q_cons = lambda_q_cons #QAWQWQW
 
         self.cluster_method = cluster_method
         self.cluster_pca_dim = cluster_pca_dim
@@ -426,6 +424,15 @@ class STWaveGraph:
 
     @torch.no_grad()
     def infer(self, refine=True):
+        """
+        Automatic switch among:
+        - gmm
+        - kmeans
+        - mclust
+
+        Final prediction:
+            emb -> optional PCA -> selected clustering -> spatial refinement
+        """
         self.model.eval()
 
         h, z, rec, q = self.model.inference(
@@ -435,27 +442,15 @@ class STWaveGraph:
         emb = F.normalize(h, p=2, dim=1).cpu().numpy().astype(np.float32)
         q_np = q.cpu().numpy().astype(np.float32)
 
-        if self.use_q_for_pred:
-            print("INFO: Using model's internal clustering head (q) for prediction.")
-            labels_raw = np.argmax(q_np, axis=1).astype(np.int32)
-            probs = q_np
-            cluster_method_used = "model_prototype_head"
-            cluster_pca_dim_used = "N/A"
-            mclust_model_used = "N/A"
-        else:
-            print(f"INFO: Using external clustering ('{self.cluster_method}') on embedding (h) for prediction.")
-            labels_raw, probs, _ = cluster_embedding(
-                emb,
-                n_clusters=self.n_clusters,
-                method=self.cluster_method,
-                random_state=self.random_seed,
-                pca_dim=self.cluster_pca_dim,
-                mclust_model=self.mclust_model,
-                fallback_to_gmm=self.mclust_fallback_to_gmm
-            )
-            cluster_method_used = self.cluster_method 
-            cluster_pca_dim_used = self.cluster_pca_dim
-            mclust_model_used = self.mclust_model
+        labels_raw, probs, centers = cluster_embedding(
+            emb,
+            n_clusters=self.n_clusters,
+            method=self.cluster_method,
+            random_state=self.random_seed,
+            pca_dim=self.cluster_pca_dim,
+            mclust_model=self.mclust_model,
+            fallback_to_gmm=self.mclust_fallback_to_gmm
+        )
 
         if refine:
             labels = refine_labels_by_spatial_neighbors(
@@ -472,10 +467,9 @@ class STWaveGraph:
         self.adata.obsm["soft_assign"] = probs.astype(np.float32)
         self.adata.obs["pred_domain_raw"] = labels_raw.astype(str)
         self.adata.obs["pred_domain"] = labels.astype(str)
-        self.adata.uns["use_q_for_pred"] = self.use_q_for_pred 
-        self.adata.uns["cluster_method_used"] = cluster_method_used
-        self.adata.uns["cluster_pca_dim"] = cluster_pca_dim_used
-        self.adata.uns["mclust_model"] = mclust_model_used
+        self.adata.uns["cluster_method_used"] = self.cluster_method
+        self.adata.uns["cluster_pca_dim"] = self.cluster_pca_dim
+        self.adata.uns["mclust_model"] = self.mclust_model
         self.adata.uns["regularization_warmup_epochs"] = self.regularization_warmup_epochs
 
         return self.adata

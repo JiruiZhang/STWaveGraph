@@ -9,6 +9,50 @@ def inverse_softplus(x):
     return torch.log(torch.expm1(x) + 1e-8)
 
 
+
+def damped_wave_transfer(eigvals, alpha, beta, time, series_threshold=1e-4):
+    """Return initial-state and initial-velocity gains for damped graph waves.
+
+    Each mode solves h'' + alpha*h' + beta*lambda*h = 0.
+    A power series in (beta*lambda - alpha**2/4)*time**2 handles
+    critical damping without epsilon shifts or singular derivatives.
+    """
+    delta = 0.5 * alpha
+    frequency_squared = beta * eigvals - delta.square()
+    z = frequency_squared * time.square()
+    near = z.abs() <= series_threshold
+    under = z > series_threshold
+    over = z < -series_threshold
+    gain_h = torch.zeros_like(eigvals)
+    gain_v = torch.zeros_like(eigvals)
+    envelope = torch.exp(-delta * time)
+
+    if near.any():
+        zn = z[near]
+        cosine = 1.0 + zn * (-0.5 + zn * (1.0/24.0 - zn/720.0))
+        sine_over_frequency = time * (
+            1.0 + zn * (-1.0/6.0 + zn * (1.0/120.0 - zn/5040.0))
+        )
+        gain_h[near] = envelope * (cosine + delta * sine_over_frequency)
+        gain_v[near] = envelope * sine_over_frequency
+
+    if under.any():
+        omega = torch.sqrt(frequency_squared[under])
+        phase = omega * time
+        sine_over_frequency = torch.sin(phase) / omega
+        gain_h[under] = envelope * (torch.cos(phase) + delta * sine_over_frequency)
+        gain_v[under] = envelope * sine_over_frequency
+
+    if over.any():
+        gamma = torch.sqrt(-frequency_squared[over])
+        exp_plus = torch.exp((-delta + gamma) * time)
+        exp_minus = torch.exp((-delta - gamma) * time)
+        gain_v[over] = 0.5 * (exp_plus - exp_minus) / gamma
+        gain_h[over] = 0.5 * (exp_plus + exp_minus) + delta * gain_v[over]
+
+    return gain_h, gain_v
+
+
 class SpectralGraphWaveLayer(nn.Module):
     """
     Damped graph wave propagation with:
@@ -127,44 +171,9 @@ class SpectralGraphWaveLayer(nn.Module):
             beta_b = beta[b]
             time_b = t[b]
 
-            delta = 0.5 * alpha_b
-            omega2 = beta_b * lam_b - delta * delta
-
-            coeff_u = torch.zeros_like(lam_b)
-            coeff_v = torch.zeros_like(lam_b)
-
-            under_mask = omega2 > self.eps
-            over_mask = ~under_mask
-
-            if under_mask.any():
-                omega = torch.sqrt(torch.clamp(omega2[under_mask], min=self.eps))
-                exp_term = torch.exp(torch.clamp(-delta * time_b, min=-60.0, max=20.0))
-
-                coeff_u[under_mask] = exp_term * (
-                    torch.cos(omega * time_b) +
-                    (delta / (omega + self.eps)) * torch.sin(omega * time_b)
-                )
-                coeff_v[under_mask] = exp_term * (
-                    torch.sin(omega * time_b) / (omega + self.eps)
-                )
-
-            if over_mask.any():
-                gamma = torch.sqrt(torch.clamp(-omega2[over_mask], min=self.eps))
-                r1 = -delta + gamma
-                r2 = -delta - gamma
-
-                e1 = torch.exp(torch.clamp(r1 * time_b, min=-60.0, max=20.0))
-                e2 = torch.exp(torch.clamp(r2 * time_b, min=-60.0, max=20.0))
-
-                delta_over_gamma = delta / (gamma + self.eps)
-
-                coeff_u[over_mask] = 0.5 * (
-                    (1.0 + delta_over_gamma) * e1 +
-                    (1.0 - delta_over_gamma) * e2
-                )
-                coeff_v[over_mask] = 0.5 * (
-                    (e1 - e2) / (gamma + self.eps)
-                )
+            coeff_u, coeff_v = damped_wave_transfer(
+                lam_b, alpha_b, beta_b, time_b
+            )
 
             wave_hat[mask] = (
                 coeff_u.unsqueeze(1) * u_hat[mask] +
