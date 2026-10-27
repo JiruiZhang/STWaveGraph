@@ -54,22 +54,13 @@ A Jupyter Notebook of the tutorial is accessible from :
 https://github.com/JiruiZhang/STWaveGraph/blob/main/STWaveGraph-main/10X%20Visium.ipynb
 
 
-### Contents
-
-- `STWaveGraph/`: revised dense reference implementation.
-- `STWaveGraphSparse/`: E19 sparse implementation, retaining the validated graph semantics.
-- `configs/`: 17 frozen tissue/sample configurations; these are distinct from constructor defaults.
-- `reproduction/`: strict clustering, explicit all-observation mclust initialization, and clustering-record tests.
-- `tests/numerics/`: original solver regression tests.
-- `requirements.txt`: concise recorded dependency versions.
-
 ### Historical tutorials and saved outputs
 
 | Notebook | Dataset | Original figure |
 | --- | --- | --- |
-| [DLPFC_151673.ipynb](STWaveGraph-main/DLPFC_151673.ipynb) | DLPFC section 151673 | Fig. 3 |
-| [Breast.ipynb](STWaveGraph-main/Breast.ipynb) | Human breast cancer | Fig. 4 |
-| [MouseBrain.ipynb](STWaveGraph-main/MouseBrain.ipynb) | Mouse brain | Fig. 4 |
-| [osmFISH.ipynb](STWaveGraph-main/osmFISH.ipynb) | osmFISH | Fig. 5 |
-| [MERFISH.ipynb](STWaveGraph-main/MERFISH.ipynb) | MERFISH | Fig. 5 |
-| [STARmap.ipynb](STWaveGraph-main/STARmap.ipynb) | STARmap | Fig. 6 |
+| [DLPFC_151673.ipynb](STWaveGraph-main/DLPFC_151673.ipynb) | DLPFC section 151673 |
+| [Breast.ipynb](STWaveGraph-main/Breast.ipynb) | Human breast cancer |
+| [MouseBrain.ipynb](STWaveGraph-main/MouseBrain.ipynb) | Mouse brain |
+| [osmFISH.ipynb](STWaveGraph-main/osmFISH.ipynb) | osmFISH |
+| [MERFISH.ipynb](STWaveGraph-main/MERFISH.ipynb) | MERFISH |
+| [STARmap.ipynb](STWaveGraph-main/STARmap.ipynb) | STARmap |
