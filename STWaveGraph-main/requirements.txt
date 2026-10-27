@@ -1,7 +1,3 @@
-# Direct dependencies recorded in the frozen Linux execution environment.
-# Python 3.8.15; R 4.0.3; R package mclust 6.0.0 (installed separately).
-# Recorded torch build: 2.4.1+cu124. Select the appropriate PyTorch wheel.
-# This is a concise dependency list, not a freshly solved cross-platform lock.
 numpy==1.22.3
 scipy==1.10.1
 pandas==2.0.3
