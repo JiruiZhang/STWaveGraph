@@ -56,8 +56,8 @@ https://github.com/JiruiZhang/STWaveGraph/blob/main/STWaveGraph-main/10X%20Visiu
 
 ### Historical tutorials and saved outputs
 
-| Notebook | Dataset | Original figure |
-| --- | --- | --- |
+| Notebook | Dataset |
+| --- | --- |
 | [DLPFC_151673.ipynb](STWaveGraph-main/DLPFC_151673.ipynb) | DLPFC section 151673 |
 | [Breast.ipynb](STWaveGraph-main/Breast.ipynb) | Human breast cancer |
 | [MouseBrain.ipynb](STWaveGraph-main/MouseBrain.ipynb) | Mouse brain |
