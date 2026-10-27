@@ -1,0 +1,190 @@
+{
+  "release": "manuscript-revision-2026-10-27",
+  "base_commit": "4b87275f8122334a1524c51cb7945622d3cf88a1",
+  "frozen_archive_sha256": "222e1c249785b5db7fd575146ae90b95f64c7a4580ce5eb3e0ca56433d76f517",
+  "original_readme_sha256": "be6bd50a1ffea8ee7d5ce377cc713eb09408a2d0609605dfe77b8ef1cc790228",
+  "original_readme_bytes": 3680,
+  "readme_policy": "Original README retained byte-for-byte as prefix; revision notes appended",
+  "layout_policy": "Existing STWaveGraph-main/ source layout retained; original tutorial and Overview untouched",
+  "source_policy": "Dense and sparse algorithms unchanged from frozen archive; six user notebooks preserved byte-for-byte",
+  "verification": [
+    "Core and sparse source byte equality",
+    "All Python source parses",
+    "17 frozen configurations; fallback disabled",
+    "11 existing desktop files unchanged",
+    "7 clustering-record unit tests passed using injected test backends; no R integration claimed"
+  ],
+  "not_verified_in_this_packaging": [
+    "Fresh dependency installation",
+    "Notebook Run All",
+    "New training",
+    "Real R/mclust integration",
+    "Full torch numerical suite"
+  ],
+  "files": {
+    ".gitignore": {
+      "sha256": "92dcd636715b548f372cda3de73042db20f9683fe1a7cef2cecd258dad000571",
+      "bytes": 101
+    },
+    "README.md": {
+      "sha256": "bdba1c036bb4850ead8b533b3d44b411c15fa7713224ea48c8bed2948676166d",
+      "bytes": 12148
+    },
+    "STWaveGraph-main/Breast.ipynb": {
+      "sha256": "68ba6c826c264d2a35fddcb2a35caf0429237d2faf199c562b18f26f3a3cab6f",
+      "bytes": 717992
+    },
+    "STWaveGraph-main/DLPFC_151673.ipynb": {
+      "sha256": "f2d4c0d250052a37c0634388ca8298f07831a005ef0476c496841f70632d3eb6",
+      "bytes": 833813
+    },
+    "STWaveGraph-main/MERFISH.ipynb": {
+      "sha256": "45272cbd093d6f2eeb09c0dcbfcc8b8fe71da441187717d8e2f6b261729fa26f",
+      "bytes": 638444
+    },
+    "STWaveGraph-main/MouseBrain.ipynb": {
+      "sha256": "343e985371ea06c55e7aeec823c3a9bdff96ac99ea29eb6b210a73014c58d090",
+      "bytes": 503569
+    },
+    "STWaveGraph-main/osmFISH.ipynb": {
+      "sha256": "e9559610cee275589f6e5c39fe0c7260ea1c69b450db700e847833f2bcd409a9",
+      "bytes": 538015
+    },
+    "STWaveGraph-main/requirements.txt": {
+      "sha256": "227e6b711d7dfa882278305fe2e38d8d9352a43a9b5ce1a416320284aa055740",
+      "bytes": 476
+    },
+    "STWaveGraph-main/STARmap.ipynb": {
+      "sha256": "4c0d876d7b75ec78fbc999945f343c0c26c3967000ccfd2c973f88da330bce97",
+      "bytes": 483357
+    },
+    "STWaveGraph-main/configs/Breast_wave_config.json": {
+      "sha256": "524940308728b9e0a32cf6ce8980eaee5e0b5fe5ce246764ab761f806d3d8012",
+      "bytes": 896
+    },
+    "STWaveGraph-main/configs/DLPFC_151507_wave_config.json": {
+      "sha256": "e955d23d5ce091b20b64176f2693f7fe55c063838980ecd28d20fa5b03092625",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151508_wave_config.json": {
+      "sha256": "e955d23d5ce091b20b64176f2693f7fe55c063838980ecd28d20fa5b03092625",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151509_wave_config.json": {
+      "sha256": "e955d23d5ce091b20b64176f2693f7fe55c063838980ecd28d20fa5b03092625",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151510_wave_config.json": {
+      "sha256": "e955d23d5ce091b20b64176f2693f7fe55c063838980ecd28d20fa5b03092625",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151669_wave_config.json": {
+      "sha256": "0b759745630a322f486541947278e0a524aed261d91a0f1b11330d06b23a969d",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151670_wave_config.json": {
+      "sha256": "0b759745630a322f486541947278e0a524aed261d91a0f1b11330d06b23a969d",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151671_wave_config.json": {
+      "sha256": "0b759745630a322f486541947278e0a524aed261d91a0f1b11330d06b23a969d",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151672_wave_config.json": {
+      "sha256": "0b759745630a322f486541947278e0a524aed261d91a0f1b11330d06b23a969d",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151673_wave_config.json": {
+      "sha256": "e955d23d5ce091b20b64176f2693f7fe55c063838980ecd28d20fa5b03092625",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151674_wave_config.json": {
+      "sha256": "e955d23d5ce091b20b64176f2693f7fe55c063838980ecd28d20fa5b03092625",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151675_wave_config.json": {
+      "sha256": "e955d23d5ce091b20b64176f2693f7fe55c063838980ecd28d20fa5b03092625",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/DLPFC_151676_wave_config.json": {
+      "sha256": "e955d23d5ce091b20b64176f2693f7fe55c063838980ecd28d20fa5b03092625",
+      "bytes": 895
+    },
+    "STWaveGraph-main/configs/MERFISH_wave_config.json": {
+      "sha256": "1bd2eb2942aaff4bc3785219fe33c2fd6f5a5fc5d386b01d25cf73f63e4e5396",
+      "bytes": 898
+    },
+    "STWaveGraph-main/configs/MouseBrain_wave_config.json": {
+      "sha256": "2eeeab477b277752999b85bb4961e9d5829f9a7c564e6ee7f04b89e6ff27e9af",
+      "bytes": 896
+    },
+    "STWaveGraph-main/configs/osmFISH_wave_config.json": {
+      "sha256": "7f8bfbb7ffaad888293352121a3895ec452941227ba8566ad79423210b6cf1c8",
+      "bytes": 898
+    },
+    "STWaveGraph-main/configs/STARmap_wave_config.json": {
+      "sha256": "62c1ce76e6c743eb74c333b459d3323180f9899c38659325c7b722de8afba523",
+      "bytes": 894
+    },
+    "STWaveGraph-main/reproduction/full_mclust_backend.py": {
+      "sha256": "6d8d6930434ad85d8df2d18e5b15b992aee550d5fd95e87620618efa8615206d",
+      "bytes": 2065
+    },
+    "STWaveGraph-main/reproduction/test_tracked_clustering.py": {
+      "sha256": "2c22a6fd076edfd6df2972a5bba8f3b0bd3071ebbcea69bdb883d8452f3190ff",
+      "bytes": 3194
+    },
+    "STWaveGraph-main/reproduction/tracked_clustering.py": {
+      "sha256": "a75773f6846033a6d35c58067e67c35f47ac8a4b89b381a6ed1151de41af5576",
+      "bytes": 4554
+    },
+    "STWaveGraph-main/STWaveGraph/model.py": {
+      "sha256": "ea2c93c2827ae2369dc7097072d4f62669fe70e1ac17cf4d4c2e5ffe6ec295e6",
+      "bytes": 11257
+    },
+    "STWaveGraph-main/STWaveGraph/preprocess.py": {
+      "sha256": "b07e36bc74581fd1e48ac09293e007ac79bbd8ddd3eb1d53684ecb4254511825",
+      "bytes": 8623
+    },
+    "STWaveGraph-main/STWaveGraph/STWaveGraph.py": {
+      "sha256": "e4bb054b793d5fddc2913220b66fbea83b2cbb567f6bba11ff15a2963917bf3f",
+      "bytes": 14885
+    },
+    "STWaveGraph-main/STWaveGraph/utils.py": {
+      "sha256": "0b2d58b49a5669ef00e9024ec990449a9dfe700e44619555ba32a64324cc2367",
+      "bytes": 10565
+    },
+    "STWaveGraph-main/STWaveGraph/__init__.py": {
+      "sha256": "f8ba9e14338147b2547a430c98583e8fa4bc76080ee23497a6846c610d44d591",
+      "bytes": 38
+    },
+    "STWaveGraph-main/STWaveGraphSparse/model.py": {
+      "sha256": "94b668091239b35c1de540d85b6444369671a60c01585410f9b297217b7c5ca2",
+      "bytes": 11679
+    },
+    "STWaveGraph-main/STWaveGraphSparse/preprocess.py": {
+      "sha256": "1b9e7452f0114b06b4c08d0ee9e911472095ad79786b1283e842485f703f0835",
+      "bytes": 9191
+    },
+    "STWaveGraph-main/STWaveGraphSparse/sparse_ops.py": {
+      "sha256": "204fa94bd75a607bcd178b82b4d61cf9db183a8091de52994dfad4dae59346aa",
+      "bytes": 5566
+    },
+    "STWaveGraph-main/STWaveGraphSparse/STWaveGraph.py": {
+      "sha256": "0dc7d2973df69bf41bedbdcf0000ff1d26369102d893bb705e90730f6e90379d",
+      "bytes": 15404
+    },
+    "STWaveGraph-main/STWaveGraphSparse/utils.py": {
+      "sha256": "5658e5886a47870b6c5bc1714c422125310ce857cfa792075e4efbb8b82d2def",
+      "bytes": 11072
+    },
+    "STWaveGraph-main/STWaveGraphSparse/__init__.py": {
+      "sha256": "b93f58fcee8d620432b89b3e857eceb4ca6390725a717f2f6615e36a2bd194ce",
+      "bytes": 37
+    },
+    "STWaveGraph-main/tests/numerics/test_wave_solver.py": {
+      "sha256": "334c11a05286262279911f6ca0417252518a5130a0117509d0ca70ee153f183f",
+      "bytes": 6456
+    }
+  }
+}
