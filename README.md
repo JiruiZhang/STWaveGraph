@@ -45,6 +45,7 @@ pip install scipy==1.8.1
 pip install scikit-learn==1.1.1
 pip install tqdm==4.64.0
 pip install matplotlib==3.4.2
+R==4.0.3 mclust===6.0.0
 ```
 
 ## Tutorial

@@ -1,0 +1,7 @@
+﻿dataset,variant,metric,successful,planned,missing_value_lower,missing_value_upper,conditional_success_mean,five_seed_delta_lower,five_seed_delta_upper,direction,not_an_imputation
+Breast,bands1,ARI,4,5,-1.0,1.0,0.4194406381416935,-0.30119504637468386,0.09880495362531612,variant minus wave,True
+Breast,bands1,NMI,4,5,0.0,1.0,0.6605170609004645,-0.1308525481864468,0.06914745181355322,variant minus wave,True
+Breast,bands1,boundary_f1,4,5,0.0,1.0,0.30160041973329443,-0.07331647601066785,0.12668352398933216,variant minus wave,True
+Breast,low_only,ARI,4,5,-1.0,1.0,0.42010461258143367,-0.30066386682289176,0.09933613317710818,variant minus wave,True
+Breast,low_only,NMI,4,5,0.0,1.0,0.6578178223629403,-0.13301193901646613,0.06698806098353387,variant minus wave,True
+Breast,low_only,boundary_f1,4,5,0.0,1.0,0.33049265844358133,-0.05020268504243832,0.14979731495756168,variant minus wave,True

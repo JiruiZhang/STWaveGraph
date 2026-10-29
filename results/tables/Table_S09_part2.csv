@@ -1,0 +1,6 @@
+﻿Tissue,Gene,Method,Stage,Seeds significant,Seeds available
+Breast,HLA-DRA,STWaveGraph,common_external,5,5
+Breast,CD74,STWaveGraph,common_external,5,5
+Mouse brain,Mbp,STWaveGraph,common_external,5,5
+Mouse brain,Plp1,STWaveGraph,common_external,5,5
+Mouse brain,Mog,STWaveGraph,common_external,5,5

@@ -1,0 +1,10 @@
+﻿baseline,metric,sections,wave_mean,baseline_mean,mean_difference,positive_sections
+3dOT,IoU,12,0.209,0.065,0.144,11
+DeepGFT,IoU,12,0.209,0.163,0.046,8
+DeepST,IoU,12,0.209,0.142,0.067,8
+GAAEST,IoU,12,0.209,0.055,0.154,10
+GraphST,IoU,12,0.209,0.085,0.124,9
+SEDR,IoU,12,0.209,0.072,0.137,10
+STAGATE,IoU,12,0.209,0.178,0.031,8
+SpaCAE,IoU,12,0.209,0.151,0.058,7
+SpaGCN,IoU,12,0.209,0.107,0.102,10

@@ -1,0 +1,6 @@
+﻿Tissue,Domain,Gene,log2 FC,Adjusted P,Fraction in,Fraction out
+Breast,0,CD74,1.025,1.17e-69,1.000,0.999
+Breast,0,HLA-DRA,1.268,4.64e-82,1.000,0.995
+Mouse brain,37,Mog,1.623,6.93e-22,0.896,0.659
+Mouse brain,37,Mbp,2.498,3.99e-35,1.000,0.998
+Mouse brain,37,Plp1,2.408,7.05e-34,1.000,0.973

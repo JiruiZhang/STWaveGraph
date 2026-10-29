@@ -1,0 +1,13 @@
+﻿Tissue,Method,Stage,n,ARI mean ± SD,Marker association mean ± SD
+Breast,DeepGFT,common_external,5,0.554 ± 0.026,0.206 ± 0.010
+Breast,DeepGFT,common_refined,5,0.555 ± 0.026,0.205 ± 0.010
+Breast,STWaveGraph,common_external,5,0.580 ± 0.023,0.226 ± 0.009
+Breast,STWaveGraph,common_refined,5,0.594 ± 0.028,0.215 ± 0.009
+Breast,SpaGCN,common_external,5,0.552 ± 0.032,0.248 ± 0.007
+Breast,SpaGCN,common_refined,5,0.568 ± 0.037,0.239 ± 0.006
+MouseBrain,DeepGFT,common_external,5,0.395 ± 0.028,0.382 ± 0.002
+MouseBrain,DeepGFT,common_refined,5,0.401 ± 0.031,0.378 ± 0.002
+MouseBrain,STWaveGraph,common_external,5,0.415 ± 0.022,0.386 ± 0.002
+MouseBrain,STWaveGraph,common_refined,5,0.424 ± 0.020,0.378 ± 0.002
+MouseBrain,SpaGCN,common_external,5,0.380 ± 0.014,0.391 ± 0.002
+MouseBrain,SpaGCN,common_refined,5,0.397 ± 0.014,0.382 ± 0.003
