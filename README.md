@@ -52,10 +52,6 @@ Rscript -e 'library(mclust); print(packageVersion("mclust"))'
 python -c "import torch, scanpy, rpy2.robjects; print(torch.__version__); print('CUDA available:', torch.cuda.is_available())"
 ```
 
-Run notebooks from the `STWaveGraph-main` directory.
-For benchmark reproduction, set `mclust_fallback_to_gmm=False`
-so that an unavailable R/mclust backend does not silently change
-the clustering method.
 
 ### Historical tutorials and saved outputs
 
