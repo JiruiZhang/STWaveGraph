@@ -10,3 +10,5 @@ numba==0.55.2
 torch==2.4.1
 rpy2==3.4.1
 tqdm==4.64.0
+r-base==4.0.3
+mclust==6.0.0

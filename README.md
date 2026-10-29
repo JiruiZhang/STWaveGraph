@@ -18,42 +18,44 @@ Spatial transcriptomics (ST) enables transcriptome-wide molecular profiling whil
 
 We recommend using [Conda](https://docs.conda.io/en/latest/) to manage your environment. STWaveGraph is implemented in Python and relies on PyTorch, Scanpy, Anndata, Rpy2, and common scientific computing packages.
 
-```python
-# 1. Clone the repository
+## Installation
+
+The following commands set up the core STWaveGraph model and tutorials
+on Linux. Python dependencies are specified in
+`STWaveGraph-main/requirements.txt`.
+
+```bash
 git clone https://github.com/JiruiZhang/STWaveGraph.git
 cd STWaveGraph
 
-# 2. Create a conda environment
-conda create -n stwavegraph_env python=3.8
-conda activate stwavegraph_env
+conda create -n stwavegraph -c conda-forge \
+  python=3.8 pip r-base=4.0.3 \
+  c-compiler cxx-compiler fortran-compiler
+conda activate stwavegraph
 
-# 3. Install PyTorch
-# Please install the PyTorch version according to your CUDA/cuDNN environment.
-# The following command is an example for CUDA 10.2.
-conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
+export R_HOME="$(R RHOME)"
 
-# Or install PyTorch by pip
-pip install torch>=1.8.0
+python -m pip install torch==2.4.1 \
+  --index-url https://download.pytorch.org/whl/cu124
 
-# 4. Install required Python packages
-pip install numpy==1.22.3
-pip install scanpy==1.9.1
-pip install anndata==0.8.0
-pip install rpy2==3.4.1
-pip install pandas==1.4.2
-pip install scipy==1.8.1
-pip install scikit-learn==1.1.1
-pip install tqdm==4.64.0
-pip install matplotlib==3.4.2
-R==4.0.3 mclust===6.0.0
+Install mclust 6.0.0:
+
+```bash
+Rscript -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/mclust/mclust_6.0.0.tar.gz", repos=NULL, type="source")'
 ```
 
-## Tutorial
+Verify the installation:
 
-A Jupyter Notebook of the tutorial is accessible from :
+```bash
+python -m pip check
+Rscript -e 'library(mclust); print(packageVersion("mclust"))'
+python -c "import torch, scanpy, rpy2.robjects; print(torch.__version__); print('CUDA available:', torch.cuda.is_available())"
+```
 
-https://github.com/JiruiZhang/STWaveGraph/blob/main/STWaveGraph-main/10X%20Visium.ipynb
-
+Run notebooks from the `STWaveGraph-main` directory.
+For benchmark reproduction, set `mclust_fallback_to_gmm=False`
+so that an unavailable R/mclust backend does not silently change
+the clustering method.
 
 ### Historical tutorials and saved outputs
 
