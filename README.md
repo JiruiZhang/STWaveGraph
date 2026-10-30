@@ -1,16 +1,18 @@
-# STWaveGraph: Spatial Domain Identification in Spatial Transcriptomics via Multi-Band Damped Graph Wave Propagation
+# STWaveGraph Combines Damped Spectral Responses and Local Encoding for Spatial Domains
 
 ## Overview
 
-Spatial transcriptomics (ST) enables transcriptome-wide molecular profiling while preserving the spatial organization of tissue sections. Accurately identifying spatial domains is a fundamental task for understanding tissue architecture, cellular neighborhoods, and disease-associated microenvironments. However, existing graph-based methods often rely on repeated neighborhood aggregation, which may behave like diffusion-like smoothing and blur sharp molecular transitions at anatomical or pathological boundaries.
+STWaveGraph is a graph spectral learning framework for spatial domain identification in spatial transcriptomics. It combines multiband damped spectral responses with residual local encoding to capture tissue organization across spatial scales.
 
-**STWaveGraph** is a frequency-adaptive graph spectral learning framework designed for robust and boundary-aware spatial domain identification in spatial transcriptomics. It features:
+The framework includes:
 
-- **Expression-Reweighted Wave Graph:** Constructs spatial graphs from physical coordinates and reweights spatial edges using transcriptomic similarity, reducing potential cross-boundary signal mixing between transcriptionally dissimilar neighboring spots or cells.
-- **Multi-Band Damped Graph Wave Propagation:** Introduces a graph spectral propagation module based on damped wave dynamics. Unlike conventional diffusion-like graph aggregation, STWaveGraph allows retained spectral components to follow learnable band-specific propagation behaviors, capturing both smooth tissue-level organization and localized spatial transitions.
-- **Residual Local Graph Encoder:** Preserves short-range spatial continuity and neighborhood-level coherence through a residual graph convolutional branch, complementing the spectral wave branch.
-- **Adaptive Spectral-Local Fusion:** Combines the spectral wave representation, local graph representation, and initial latent features through a learnable fusion mechanism to balance global graph spectral structure and local spatial consistency.
-- **Boundary-Aware Clustering Refinement:** Optimizes spatial domain embeddings through representation pretraining and clustering-oriented fine-tuning, including reconstruction, cross-view consistency, spatial coherence, clustering alignment, cluster balance, and boundary-aware regularization.
+- **Expression-weighted spatial graph:** Constructs a spatial neighborhood graph and weights its edges using gene-expression similarity.
+- **Damped spectral filtering:** Learns band-specific state and velocity responses on selected graph modes.
+- **Residual local encoding:** Captures local neighborhood information through a residual graph convolutional branch.
+- **Adaptive feature fusion:** Integrates spectral features, local features, and initial representations.
+- **Representation learning and clustering:** Uses representation pretraining and clustering-oriented fine-tuning to identify spatial domains.
+
+Evaluation combines global clustering metrics, exact-edge interface measurements, and localized cortical overlap analysis. This repository provides the core implementation, dataset notebooks, experiment scripts, configurations, and selected results.
 
 ![overview](STWaveGraph-main/Overview/overview.jpg)
 
