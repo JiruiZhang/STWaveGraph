@@ -52,7 +52,12 @@ Rscript -e 'library(mclust); print(packageVersion("mclust"))'
 python -c "import torch, scanpy, rpy2.robjects; print(torch.__version__); print('CUDA available:', torch.cuda.is_available())"
 ```
 
+### Experiments and results
 
+- [Experiment files and commands](STWaveGraph-main/experiments/README.md)
+- [Result tables and plotting script](STWaveGraph-main/results)
+
+The installation above covers STWaveGraph and its experiment utilities.
 ### Historical tutorials and saved outputs
 
 | Notebook | Dataset |
